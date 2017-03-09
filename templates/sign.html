@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <main class="container signup-section">
+     <div class="section-content">
+       <h2>Sign Up</h2>
+       <form method="POST" action="/sign">
+       {{form.hidden_tag()}}
+<!-- form object generate the rest of form,hidden_tag()use to against CSRFa
+attacks-->
+
+       <div class="form-group">
+         {{form.f_name.label}}
+         {% if form.f_name.errors %}
+            {% for error in form.f_name.errors %}
+               <p class="error-message">{{ error }}</p>
+            {% endfor%}
+         {% endif %}
+         {{form.f_name}}
+       </div>
+       <div class="form-group">
+         {{form.l_name.label}}
+         {% if form.l_name.errors %}
+            {% for error in form.l_name.errors %}
+               <p class="error-message">{{ error }}</p>
+            {% endfor%}
+         {% endif %}
+         {{form.l_name}}
+       </div>
+       <div class="form-group">
+         {{form.email.label}}
+         {% if form.email.errors %}
+            {% for error in form.email.errors %}
+               <p class="error-message">{{ error }}</p>
+            {% endfor%}
+         {% endif %}
+         {{form.email}}
+       </div>
+       <div class="form-group">
+         {{form.password.label}}
+         {% if form.password.errors %}
+            {% for error in form.password.errors %}
+               <p class="error-message">{{ error }}</p>
+            {% endfor%}
+         {% endif %}
+         {{form.password}}
+       </div>
+       {{form.submit(class="btn-primary")}}
+       </form>
+    </div>
+  </main>
+
+{% endblock %}
