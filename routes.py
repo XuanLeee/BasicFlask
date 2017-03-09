@@ -87,8 +87,8 @@ def logout():
 
 @app.route("/returnpage", methods=["Get","POST"])
 def returnPage():##check the user login or not
-     if 'email' not in session:
-         return redirect(url_for('login'))
+    # if 'email' not in session:
+    #    return redirect(url_for('login'))
      form = Address()
      places = []
      my_coordinates = (45.348306,-75.756240) ##default algonquin college latitude and longitude
